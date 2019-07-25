@@ -4,11 +4,10 @@ import getIcon from '../services/gravatarHash';
 
 const EmployeesList = (props) => {
   const { emp } = props;
-  const arr = Object.values(emp);
 
   return (
     <ul>
-      {arr.map(item => (
+      {emp.map(item => (
         <li key={item.email}>
           <img src={getIcon(item.email)} alt={item.name} />
           <span>{item.name}</span>
@@ -21,7 +20,7 @@ const EmployeesList = (props) => {
 };
 
 EmployeesList.propTypes = {
-  emp: PropTypes.instanceOf(Object).isRequired,
+  emp: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default EmployeesList;

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Carousel from './Carousel';
 import EmployeesList from './EmployeesList';
+import styles from '../css/common.module.scss';
 
 const Main = (props) => {
   const { getEmployeesList, employees } = props;
@@ -10,17 +11,19 @@ const Main = (props) => {
     getEmployeesList();
   }, [getEmployeesList]);
 
+  const empArr = Object.values(employees);
+
   return (
     <>
       <header>
         <h2>Employees Reviews</h2>
       </header>
       <div>
-        <section>
-          <Carousel emp={employees} />
+        <section className={styles.carousel}>
+          <Carousel emp={empArr} />
         </section>
-        <section>
-          <EmployeesList emp={employees} />
+        <section className={styles.emp_list}>
+          <EmployeesList emp={empArr} />
         </section>
       </div>
       <footer>
