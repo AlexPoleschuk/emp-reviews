@@ -4,9 +4,7 @@ import Slider from 'react-slick';
 import getIcon from '../services/gravatarHash';
 import styles from '../css/common.module.scss';
 
-const Carousel = (props) => {
-  const { emp } = props;
-
+const Carousel = ({ emp, onClickEmp }) => {
   const settings = {
     dots: false,
     arrows: false,
@@ -25,7 +23,7 @@ const Carousel = (props) => {
           <button
             type="button"
             key={item.email}
-            onDoubleClick={() => console.log(item.email)}
+            onDoubleClick={() => onClickEmp(item.email)}
           >
             <img
               src={getIcon(item.email)}
@@ -40,6 +38,7 @@ const Carousel = (props) => {
 
 Carousel.propTypes = {
   emp: PropTypes.instanceOf(Array).isRequired,
+  onClickEmp: PropTypes.func.isRequired,
 };
 
 export default Carousel;

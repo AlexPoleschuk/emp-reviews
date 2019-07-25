@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import { getEmployees } from '../modules/Main';
+import { getEmployees, getSelectedEmp } from '../modules/Main';
 import Main from '../components/Main';
-import { getEmployeesList } from '../modules/Main/actions';
+import { getEmployeesList, getSelectedEmployee } from '../modules/Main/actions';
 
 const mapStateToProps = state => ({
   employees: getEmployees(state),
+  selectedEmp: getSelectedEmp(state),
 });
 
-const mapDispatchToProps = { getEmployeesList };
+const mapDispatchToProps = { getEmployeesList, getSelectedEmployee };
 
 const MainContainer = connect(
   mapStateToProps,

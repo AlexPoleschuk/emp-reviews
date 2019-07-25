@@ -1,8 +1,10 @@
 import { handleActions } from 'redux-actions';
+import { combineReducers } from 'redux';
 import {
   getEmployeesList,
   getEmpListSuccess,
   getEmpListFailture,
+  getSelectedEmployee,
 } from './actions';
 
 const employees = handleActions(
@@ -14,6 +16,13 @@ const employees = handleActions(
   [],
 );
 
-export default employees;
+const selectedEmp = handleActions(
+  {
+    [getSelectedEmployee]: (_state, action) => action.payload,
+  },
+  '',
+);
 
+export default combineReducers({ employees, selectedEmp });
 export const getEmployees = state => state.employees;
+export const getSelectedEmp = state => state.selectedEmp;

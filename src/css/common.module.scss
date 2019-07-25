@@ -4,7 +4,7 @@ $s: 16px;
 $m: 32px;
 $l: 64px;
 $xl: 128px;
-$carousel: 430px;
+$block: 430px;
 
 //font
 $primary_font_style: monospace;
@@ -54,9 +54,10 @@ button:focus {
     justify-content:center;
     .carousel__body {
         height: 20vh;
-        width: $carousel;
+        width: $block;
         img {
             border: 3px solid transparent;
+            border-radius: $xs;
             &:hover {
                 border: 3px solid $secondary_blue;
             } 
@@ -64,37 +65,134 @@ button:focus {
     }
 }
 
-.emp_list {
+.list_page {
     display:flex;
-    justify-content:center;
+    justify-content:space-around;
     height: 60vh;
-    min-width: 30%; 
-    padding: $s;
     ul {  
         display: flex;
         flex-direction: column;
-        height: inherit;
-        li {
-            list-style-type: none; 
+        margin: $s;
+        overflow-y: auto;
+        @extend .custom_scroll;
+          &::-webkit-scrollbar-track {
+            border-radius: 4px;
+          }
+        .list_item_btn {
             display:flex;
-            align-items: center;
-            padding: $xs 0;
+            align-items:center;
+            box-sizing: content-box;
             border-bottom: 1px solid $primary_blue;
-            img {
-                max-height: $m;
-                height: 5vh;
-                margin-left: $s;
+            margin-right: $s;
+            min-height: $l;
+            li {
+                list-style-type: none; 
+                display:flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding: $xs 0; 
+                img {
+                    max-height: $m;
+                    height: 5vh;
+                    margin-left: $s;
+                    border-radius: $xs;
+                }
+                span {
+                    margin: 0 $s;
+                }   
             }
-            span {
-                margin: 0 $s;
-            } 
             &:hover {
-                cursor: pointer;
                 background: $secondary_blue;
-            }  
+            }
             &:last-child {
                 border: none;
             }
         }
     }
+    .emp_page {
+        display:flex;
+        flex-direction:row;
+        justify-content: space-between;
+        border: 1px solid $secondary_blue;
+        box-sizing: border-box;
+        border-radius: $s;
+        padding: $s;
+        min-width: 60vw;
+        .card_btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .emp_page__card {
+                display: flex;
+                flex-direction:column;
+                position:sticky;
+                img {
+                    width: 10vw;
+                    border: 3px solid $secondary_blue;
+                    border-radius: $s;
+                }
+                span {
+                    margin-top: $xs;
+                }
+            }
+            .add_comment_btn {
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                height: 10vh;
+                width: 14vw;
+                border: 3px solid $secondary_blue;
+                border-radius: $s;
+                &:hover {
+                    background: $primary_blue;
+                    color: white;
+                }
+            }
+        }
+        .emp_page__comments {
+            display:flex;
+            flex-direction:column;
+            overflow-y: auto;
+            @extend .custom_scroll;
+            .emp_page__comments__item {
+                display:block;
+                width: 40vw;
+                margin-left: $s;
+                background: $secondary_blue;
+                border: 1px solid $primary_blue;
+                border-radius: $s;
+                padding: $xs;
+                margin: 0 $s $xs 0;
+                .phone {
+                    display: flex;
+                    width: 10vw;
+                    margin: $xs 0;
+                    img {
+                        height: $s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.custom_scroll {
+    &::-webkit-scrollbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 8px;
+        background-color: white;
+        border: 1px solid $primary_blue;
+        border-radius: 8px;
+      }
+      &::-webkit-scrollbar-thumb {
+        width: 8px;
+        border: 4px solid $secondary_blue;
+        border-radius: 8px;
+        background-color: $secondary_blue;
+      }
+      &::-webkit-scrollbar-track {
+        border-radius: 4px;
+      }
 }
