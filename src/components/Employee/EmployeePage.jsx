@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from '../../css/common.module.scss';
 import Card from './Card';
 import Comments from './Comments';
-import AddCommentBtn from './AddCommentBtn';
+import AddBtnContainer from '../../containers/AddBtnContainer';
 
 const EmployeePage = ({ selected }) => {
   const visible = Object.prototype.hasOwnProperty.call(selected, 'email');
@@ -14,9 +14,9 @@ const EmployeePage = ({ selected }) => {
         <div className={styles.emp_page}>
           <div className={styles.card_btn}>
             <Card selected={selected} />
-            <AddCommentBtn />
+            <AddBtnContainer />
           </div>
-          <Comments comments={selected.comments.slice(-5)} />
+          <Comments comments={selected.comments.slice(-5).reverse()} />
         </div>
       ) : null
   );

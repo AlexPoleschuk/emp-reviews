@@ -7,12 +7,13 @@ $xl: 128px;
 $block: 430px;
 
 //font
-$primary_font_style: monospace;
+$primary_font_style: helvetica;
 $primary_font_size: $s;
 
 //colors
-$primary_blue: rgb(0, 170, 255);
-$secondary_blue: rgb(138, 216, 255);
+$primary_blue: rgb(115, 208, 255);
+$secondary_blue: rgb(173, 226, 253);
+$grey: rgb(164, 164, 164);
 
 header {
     display: flex;
@@ -28,6 +29,8 @@ header {
     justify-content: center;
     flex: 1 0 auto;
     height: 80vh;
+    font-size: $primary_font_size;
+    font-family: $primary_font_style;
 }
 footer {
     display:flex;
@@ -69,9 +72,10 @@ button:focus {
     display:flex;
     justify-content:space-around;
     height: 60vh;
-    ul {  
+    .list_ul {  
         display: flex;
         flex-direction: column;
+        min-width: 38vw;
         margin: $s;
         overflow-y: auto;
         @extend .custom_scroll;
@@ -117,11 +121,12 @@ button:focus {
         box-sizing: border-box;
         border-radius: $s;
         padding: $s;
-        min-width: 60vw;
+        min-width: 54vw;
         .card_btn {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            padding-right: $s;
             .emp_page__card {
                 display: flex;
                 flex-direction:column;
@@ -139,10 +144,9 @@ button:focus {
                 display:flex;
                 justify-content: center;
                 align-items: center;
-                height: 10vh;
-                width: 14vw;
+                height: 7vh;
                 border: 3px solid $secondary_blue;
-                border-radius: $s;
+                border-radius: $xs;
                 &:hover {
                     background: $primary_blue;
                     color: white;
@@ -170,6 +174,74 @@ button:focus {
                     img {
                         height: $s;
                     }
+                }
+            }
+        }
+    }
+    .comment_form {
+        @extend .list_ul;
+        align-items: center;
+        max-height: 60vh;
+        .form_items {
+            display: flex;
+            flex-direction:column;
+            min-width: 30vw;
+            max-height: 60vh;
+            .form_field {
+                margin-bottom: $xs;
+                .form_field_error {
+                    display:flex;
+                    height:$s;
+                    color: red;
+                    font-size: $xs*1.5;
+                } 
+                .spin {
+                    display: flex;
+                    height: $s;
+                }
+            }
+            input {
+                min-height: 5vh;
+                min-width: 30vw;
+                border: 1px solid $secondary_blue;
+                border-radius: $xs;
+                padding: 0 $xs;
+                outline:none;
+            }
+            textarea {
+                @extend input;
+                overflow-y: auto;
+                @extend .custom_scroll;
+                resize: none;
+                min-height: 24vh;
+                padding: $xs;
+            }
+            .form_btns {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .submit_form_btn {
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 7vh;
+                    min-width: 12vw;
+                    border: 3px solid $secondary_blue;
+                    border-radius: $xs;
+                    &:hover {
+                        background: $primary_blue;
+                        color: white;
+                    }
+                    &:disabled {
+                        border-color: $grey;
+                        color: $grey;
+                        &:hover {
+                            background: white;
+                        }
+                    }
+                }
+                .close_form_btn {
+                    @extend .submit_form_btn;
                 }
             }
         }

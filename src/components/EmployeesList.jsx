@@ -4,7 +4,7 @@ import styles from '../css/common.module.scss';
 import getIcon from '../services/gravatarHash';
 
 const EmployeesList = ({ emp, onClickEmp }) => (
-  <ul>
+  <ul className={styles.list_ul}>
     {emp.map(item => (
       <button
         key={item.email}
