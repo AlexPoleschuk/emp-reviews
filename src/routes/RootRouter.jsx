@@ -5,8 +5,8 @@ import MainContainer from '../containers/MainContainer';
 export default () => (
   <>
     <Switch>
-      <Route path="/" exact component={MainContainer} />
-      <Redirect from="*" to="/" />
+      <Route path="/employees" exact component={MainContainer} />
+      <Redirect from="*" to="/employees" />
     </Switch>
   </>
 );

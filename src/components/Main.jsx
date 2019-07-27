@@ -4,6 +4,7 @@ import EmployeesList from './EmployeesList';
 import EmployeePage from './Employee/EmployeePage';
 import ComFormContainer from '../containers/ComFormContainer';
 import CarouselContainer from '../containers/CarouselContainer';
+import history from '../services/history';
 import styles from '../css/common.module.scss';
 
 const Main = (props) => {
@@ -40,6 +41,11 @@ const Main = (props) => {
   useEffect(() => {
     getEmployeesList();
   }, [getEmployeesList]);
+
+  if (Object.prototype.hasOwnProperty.call(empCurrent, 'email')) {
+    const { name, surname } = empCurrent;
+    history.push(`/employees/${name}#${surname}`);
+  }
 
   addNewCommentToCurrent();
 

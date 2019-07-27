@@ -14,7 +14,7 @@ const EmployeePage = ({ selected }) => {
         <div className={styles.emp_page}>
           <div className={styles.card_btn}>
             <Card selected={selected} />
-            <AddBtnContainer />
+            <AddBtnContainer selected={selected} />
           </div>
           <Comments comments={selected.comments.slice(-5).reverse()} />
         </div>

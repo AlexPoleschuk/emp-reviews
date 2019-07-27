@@ -75,7 +75,7 @@ button:focus {
     .list_ul {  
         display: flex;
         flex-direction: column;
-        min-width: 38vw;
+        width: 38vw;
         margin: $s;
         overflow-y: auto;
         @extend .custom_scroll;
@@ -130,6 +130,7 @@ button:focus {
             .emp_page__card {
                 display: flex;
                 flex-direction:column;
+                width: 12vw;
                 position:sticky;
                 img {
                     width: 10vw;

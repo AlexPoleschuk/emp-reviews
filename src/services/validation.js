@@ -14,7 +14,7 @@ export const validatePhone = (value) => {
   if (!value) {
     return 'Required';
   }
-  if (!/^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/.test(value)) {
+  if (!/^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/.test(value.replace(/\s+/g, ''))) {
     return 'Please enter valid phone number';
   }
 };
