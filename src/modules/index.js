@@ -6,13 +6,14 @@ import {
   sagas as empSaga,
 } from './Main';
 import { openForm } from './EmployeePage';
-import { newComment } from './CommentForm';
+import { newComment, newUser } from './CommentForm';
 
 export default combineReducers({
   employees,
   selectedEmp,
   openForm,
   newComment,
+  newUser,
 });
 
 export function* rootSaga() {

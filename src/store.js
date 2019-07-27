@@ -10,7 +10,7 @@ export default () => {
     reducers,
     compose(
       applyMiddleware(sagaMiddleware),
-      window.REDUX_DEVTOOLS_EXTENSION__
+      window.__REDUX_DEVTOOLS_EXTENSION__
         ? window.__REDUX_DEVTOOLS_EXTENSION__()
         : noop => noop,
     ),
