@@ -24,7 +24,7 @@ const Carousel = ({ emp, onClickEmp, openCloseForm }) => {
   return (
     <div className={styles.carousel__body}>
       <Slider {...settings}>
-        {emp.map(item => (
+        {emp && emp.map(item => (
           <button
             type="button"
             key={item.email}

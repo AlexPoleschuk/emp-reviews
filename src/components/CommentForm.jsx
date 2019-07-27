@@ -9,11 +9,12 @@ import {
 } from '../services/validation';
 import styles from '../css/common.module.scss';
 
-const CommentForm = ({ openCloseForm, addComment }) => {
+const CommentForm = ({ openCloseForm, addComment, addUser }) => {
   let initial = false;
 
   const onSubmit = (values) => {
     addComment(values);
+    addUser(`user#${values.phone}`);
     openCloseForm(false);
   };
   const onClose = () => {
@@ -117,6 +118,7 @@ const CommentForm = ({ openCloseForm, addComment }) => {
 CommentForm.propTypes = {
   openCloseForm: PropTypes.func.isRequired,
   addComment: PropTypes.func.isRequired,
+  addUser: PropTypes.func.isRequired,
 };
 
 export default CommentForm;

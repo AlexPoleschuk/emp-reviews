@@ -5,7 +5,7 @@ import getIcon from '../services/gravatarHash';
 
 const EmployeesList = ({ emp, onClickEmp }) => (
   <ul className={styles.list_ul}>
-    {emp.map(item => (
+    {emp && emp.map(item => (
       <button
         key={item.email}
         type="button"
