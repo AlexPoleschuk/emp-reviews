@@ -1,10 +1,12 @@
 import React from 'react';
-import { Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
+import MainContainer from '../containers/MainContainer';
 
 export default () => (
   <>
     <Switch>
-      <Redirect from="*" to="/" />
+      <Route path="/employees" exact component={MainContainer} />
+      <Redirect from="*" to="/employees" />
     </Switch>
   </>
 );
